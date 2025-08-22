@@ -1,0 +1,428 @@
+/* NewsPage.css - Override Tailwind styles */
+
+.news-page {
+    min-height: 100vh !important;
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  /* Header Styles */
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid #374151 !important;
+    z-index: 50 !important;
+  }
+  
+  .header-content {
+    max-width: 42rem !important;
+    margin: 0 auto !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .header-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .title {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    color: #fff !important;
+  }
+  
+  .search-button {
+    padding: 0.5rem !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+  }
+  
+  .search-button:hover {
+    background-color: #374151 !important;
+  }
+  
+  /* Search Section */
+  .search-section {
+    margin-top: 0.75rem !important;
+  }
+  
+  .search-input {
+    width: 100% !important;
+    background-color: #111827 !important;
+    border: 1px solid #374151 !important;
+    border-radius: 1.5rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    color: #fff !important;
+    transition: border-color 0.2s !important;
+  }
+  
+  .search-input:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+  }
+  
+  .search-input::placeholder {
+    color: #9ca3af !important;
+  }
+  
+  .search-suggestions {
+    margin-top: 0.5rem !important;
+  }
+  
+  .suggestions-title {
+    font-size: 0.75rem !important;
+    color: #9ca3af !important;
+    margin: 0 0 0.5rem 0 !important;
+  }
+  
+  .suggestions-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  
+  .suggestion-pill {
+    background-color: #374151 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 1.5rem !important;
+    font-size: 0.75rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+  }
+  
+  .suggestion-pill:hover {
+    background-color: #4b5563 !important;
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex !important;
+    margin-top: 1rem !important;
+    border-bottom: 1px solid #374151 !important;
+  }
+  
+  .tab {
+    flex: 1 !important;
+    padding: 0.75rem !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #9ca3af !important;
+    cursor: pointer !important;
+    transition: color 0.2s !important;
+    position: relative !important;
+  }
+  
+  .tab:hover {
+    color: #d1d5db !important;
+  }
+  
+  .tab-active {
+    color: #fff !important;
+  }
+  
+  .tab-active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -1px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background-color: #3b82f6 !important;
+  }
+  
+  .tab-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* News Feed */
+  .news-feed {
+    max-width: 42rem !important;
+    margin: 0 auto !important;
+  }
+  
+  .news-item {
+    border-bottom: 1px solid #374151 !important;
+    transition: background-color 0.2s !important;
+  }
+  
+  .news-item:hover {
+    background-color: rgba(17, 24, 39, 0.3) !important;
+  }
+  
+  .news-content {
+    padding: 1rem !important;
+  }
+  
+  /* Celebrity Header */
+  .celebrity-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .celebrity-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+  
+  .avatar {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.875rem !important;
+    font-weight: bold !important;
+    color: #fff !important;
+  }
+  
+  .celebrity-details {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .celebrity-name {
+    font-weight: 600 !important;
+    color: #fff !important;
+    margin: 0 0 0.25rem 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  .source-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #9ca3af !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .upvote-button {
+    padding: 0.5rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    border: none !important;
+    color: #9ca3af !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+  }
+  
+  .upvote-button:hover {
+    color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.1) !important;
+  }
+  
+  .upvote-button.upvoted {
+    color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.1) !important;
+  }
+  
+  /* Article Content */
+  .article-content {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .article-header {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .article-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    color: #fff !important;
+    flex: 1 !important;
+  }
+  
+  .trending-badge {
+    background-color: #dc2626 !important;
+    color: #fff !important;
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 1rem !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+  }
+  
+  .article-text {
+    color: #d1d5db !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    margin: 0 0 0.75rem 0 !important;
+  }
+  
+  /* Tags */
+  .tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .tag {
+    background-color: #374151 !important;
+    color: #d1d5db !important;
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 1rem !important;
+  }
+  
+  /* Actions */
+  .actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .interaction-buttons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  
+  .like-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: transparent !important;
+    border: none !important;
+    color: #9ca3af !important;
+    cursor: pointer !important;
+    transition: color 0.2s !important;
+    padding: 0 !important;
+  }
+  
+  .like-button:hover {
+    color: #ef4444 !important;
+  }
+  
+  .like-button.liked {
+    color: #ef4444 !important;
+  }
+  
+  .upvote-count {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #9ca3af !important;
+  }
+  
+  .count {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  .social-link {
+    padding: 0.5rem !important;
+    color: #9ca3af !important;
+    border-radius: 50% !important;
+    transition: all 0.2s !important;
+    text-decoration: none !important;
+  }
+  
+  .social-link:hover {
+    color: #fff !important;
+  }
+  
+  .social-link.instagram:hover {
+    color: #e91e63 !important;
+    background-color: rgba(233, 30, 99, 0.1) !important;
+  }
+  
+  .social-link.twitter:hover {
+    color: #1d9bf0 !important;
+    background-color: rgba(29, 155, 240, 0.1) !important;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    max-width: 42rem !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    text-align: center !important;
+  }
+  
+  .empty-content {
+    color: #9ca3af !important;
+  }
+  
+  .empty-icon {
+    margin: 0 auto 1rem auto !important;
+    opacity: 0.5 !important;
+  }
+  
+  .empty-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.5rem 0 !important;
+    color: #9ca3af !important;
+  }
+  
+  .empty-text {
+    font-size: 0.875rem !important;
+    margin: 0 !important;
+    color: #9ca3af !important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-content {
+      padding: 0.75rem 0.5rem !important;
+    }
+    
+    .news-content {
+      padding: 0.75rem 0.5rem !important;
+    }
+    
+    .article-header {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.5rem !important;
+    }
+    
+    .celebrity-info {
+      gap: 0.5rem !important;
+    }
+    
+    .avatar {
+      width: 2rem !important;
+      height: 2rem !important;
+      font-size: 0.75rem !important;
+    }
+    
+    .actions {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+    }
+  }
