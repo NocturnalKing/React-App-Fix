@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import "./NewsPage.css";
 import { Search, Heart, TrendingUp, ArrowUp, ExternalLink, Clock, Twitter, Instagram, Youtube, Twitch } from 'lucide-react';
+
+function TestThing(){
+  return (
+    <>
+    <h1>"This will make me insane"</h1>
+    </>
+  )
+}
+
 
 const NewsPage = () => {
   const [activeTab, setActiveTab] = useState('trending');
@@ -171,13 +181,14 @@ const NewsPage = () => {
     item.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
+  // The actual dynamic page to be returned/displayed
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <div className="sticky top-0 bg-black/95 backdrop-blur-sm border-b border-gray-800 z-50">
         <div className="max-w-2xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Celebrity News</h1>
+            <h1 className="text-xl font-bold">Celebrity News!</h1>
             <button 
               onClick={() => setShowSearch(!showSearch)}
               className="p-2 hover:bg-gray-800 rounded-full transition-colors"
@@ -187,9 +198,9 @@ const NewsPage = () => {
           </div>
           
           {/* Search Bar */}
-          {showSearch && (
+          {showSearch && (    // If showSearch is true then render the <div> element, if false then ignore
             <div className="mt-3">
-              <input
+              <input      // Search
                 type="text"
                 placeholder="Search news, celebrities, topics..."
                 value={searchQuery}
@@ -250,6 +261,7 @@ const NewsPage = () => {
           <article key={item.id} className="border-b border-gray-800 hover:bg-gray-950/30 transition-colors">
             <div className="p-4">
               {/* Celebrity Header */}
+              <div className="TestingB">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
@@ -257,7 +269,7 @@ const NewsPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">{item.celebrity}</h3>
-                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <div className="flex items-center gap-2 text-gray-500 text-sm  sources">
                       {getSourceIcon(item.source)}
                       <span>{item.source}</span>
                       <Clock size={12} />
@@ -265,16 +277,7 @@ const NewsPage = () => {
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => handleUpvote(item.celebrity)}
-                  className={`p-2 rounded-full transition-colors ${
-                    upvotedCelebs.has(item.celebrity)
-                      ? 'text-green-500 bg-green-500/10'
-                      : 'text-gray-500 hover:text-green-500 hover:bg-green-500/10'
-                  }`}
-                >
-                  <ArrowUp size={18} />
-                </button>
+                
               </div>
 
               {/* Content */}
@@ -282,9 +285,11 @@ const NewsPage = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <h2 className="text-lg font-semibold leading-tight">{item.title}</h2>
                   {item.trending && (
-                    <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full font-medium">
-                      TRENDING
-                    </span>
+                    <center className = "Testing3">
+                      <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                        TRENDING
+                      </span>
+                    </center>
                   )}
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed mb-3">{item.content}</p>
@@ -292,12 +297,14 @@ const NewsPage = () => {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded-full"
-                    >
-                      #{tag}
-                    </span>
+                    <center className="tags">
+                      <span
+                        key={index}
+                        className="bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded-full"
+                      >
+                        #{tag}
+                      </span>
+                    </center>
                   ))}
                 </div>
               </div>
@@ -305,9 +312,10 @@ const NewsPage = () => {
               {/* Actions */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <button
+                  
+                  <button     /* Heart button */
                     onClick={() => handleLike(item.id)}
-                    className={`flex items-center gap-2 transition-colors ${
+                    className={`flex items-center gap-2 transition-colors in-line ${
                       likedPosts.has(item.id)
                         ? 'text-red-500'
                         : 'text-gray-500 hover:text-red-500'
@@ -316,31 +324,43 @@ const NewsPage = () => {
                     <Heart size={18} fill={likedPosts.has(item.id) ? 'currentColor' : 'none'} />
                     <span className="text-sm">{item.likes + (likedPosts.has(item.id) ? 1 : 0)}</span>
                   </button>
-                  <div className="flex items-center gap-2 text-gray-500">
+                  
+                  <button  /* Upvote button */
+                    onClick={() => handleUpvote(item.celebrity)}
+                    className={`p-2 rounded-full transition-colors ${
+                      upvotedCelebs.has(item.celebrity)
+                        ? 'text-green-500 bg-green-500/10'
+                        : 'text-gray-500 hover:text-green-500 hover:bg-green-500/10'
+                    }`}
+                  >
                     <ArrowUp size={18} />
                     <span className="text-sm">{item.upvotes + (upvotedCelebs.has(item.celebrity) ? 1 : 0)}</span>
-                  </div>
+                  </button>
+
                 </div>
 
                 {/* Social Links */}
-                <div className="flex items-center gap-2">
-                  <a
-                    href={`https://instagram.com/${item.socialLinks.instagram.replace('@', '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-gray-500 hover:text-pink-500 hover:bg-pink-500/10 rounded-full transition-colors"
-                  >
-                    <Instagram size={16} />
-                  </a>
-                  <a
-                    href={`https://x.com/${item.socialLinks.x.replace('@', '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-gray-500 hover:text-blue-500 hover:bg-blue-500/10 rounded-full transition-colors"
-                  >
-                    <Twitter size={16} />
-                  </a>
+                <div className="socials">
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`https://instagram.com/${item.socialLinks.instagram.replace('@', '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-gray-500 hover:text-pink-500 hover:bg-pink-500/10 rounded-full transition-colors"
+                    >
+                      <Instagram size={30} />
+                    </a>
+                    <a
+                      href={`https://x.com/${item.socialLinks.x.replace('@', '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-gray-500 hover:text-blue-500 hover:bg-blue-500/10 rounded-full transition-colors"
+                    >
+                      <Twitter size={30} />
+                    </a>
+                  </div>
                 </div>
+              </div>
               </div>
             </div>
           </article>
@@ -359,6 +379,7 @@ const NewsPage = () => {
       )}
     </div>
   );
+
 };
 
 export default NewsPage;

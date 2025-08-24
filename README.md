@@ -1,6 +1,6 @@
 # React-App-Fix
 
-To run this locally on your machine 
+To run this locally on your machine
 
 1. Make sure you have the latest version of Node.js installed!
 2. Clone this repository
