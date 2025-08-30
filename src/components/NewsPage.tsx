@@ -185,13 +185,13 @@ const NewsPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <div className="sticky top-0 bg-black/95 backdrop-blur-sm border-b border-gray-800 z-50">
+      <h1 className="text-xl font-bold app-name">Celebrity News!</h1>
+      <div className="sticky top-0 bg-black/95 backdrop-blur-sm border-b border-gray-800 z-50 search-stuff">
         <div className="max-w-2xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">Celebrity News!</h1>
             <button 
               onClick={() => setShowSearch(!showSearch)}
-              className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+              className="p-2 hover:bg-gray-800 rounded-full transition-colors search-border"
             >
               <Search size={20} />
             </button>
@@ -199,7 +199,7 @@ const NewsPage = () => {
           
           {/* Search Bar */}
           {showSearch && (    // If showSearch is true then render the <div> element, if false then ignore
-            <div className="mt-3">
+            <div className="mt-3 search-border2">
               <input      // Search
                 type="text"
                 placeholder="Search news, celebrities, topics..."
@@ -210,7 +210,7 @@ const NewsPage = () => {
               {searchQuery === '' && (
                 <div className="mt-2">
                   <p className="text-xs text-gray-500 mb-2">Trending searches:</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {trendingSuggestions.map((suggestion, index) => (
                       <button
                         key={index}
@@ -227,7 +227,7 @@ const NewsPage = () => {
           )}
           
           {/* Tabs */}
-          <div className="flex mt-4 border-b border-gray-800">
+          <div className="flex mt-4 border-b border-gray-800 feed-select">
             <button
               onClick={() => setActiveTab('trending')}
               className={`flex-1 py-3 text-center font-medium transition-colors relative ${
@@ -297,14 +297,14 @@ const NewsPage = () => {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.tags.map((tag, index) => (
-                    <center className="tags">
+                    <div className="tags">
                       <span
                         key={index}
                         className="bg-gray-800 text-gray-300 text-xs px-2 py-1 rounded-full"
                       >
                         #{tag}
                       </span>
-                    </center>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -371,7 +371,7 @@ const NewsPage = () => {
       {filteredNews.length === 0 && (
         <div className="max-w-2xl mx-auto p-8 text-center">
           <div className="text-gray-500">
-            <Search size={48} className="mx-auto mb-4 opacity-50" />
+            <Search size={48} className="mx-auto mb-4 opacity-50  " />
             <h3 className="text-lg font-semibold mb-2">No results found</h3>
             <p className="text-sm">Try adjusting your search or browse trending topics</p>
           </div>
